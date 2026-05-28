@@ -1,0 +1,84 @@
+{
+    "list": [
+        {
+            "id": 1,
+            "title": "Universal TV Motherboard",
+            "description": "Full replacement motherboard compatible with most 32–55\" LED/LCD TVs.",
+            "specs": "Integrated video decoder chipset\n12V DC input (5.5x2.1mm) with onboard regulation\nHDMI ×2, AV in/out\nLVDS/eDP display connector\nIR receiver input, tuner socket\nSPI firmware flash and service test points\nFirmware matching and bench testing (power/backlight/signal)\n90-day parts-and-labor warranty",
+            "price": "₹5,499",
+            "img": "/Product_1.svg"
+        },
+        {
+            "id": 2,
+            "title": "WA04 Coconut WiFi Receiver",
+            "description": "Compact Wi‑Fi receiver for home and IoT use.",
+            "specs": "Standards: 802.11 b/g/n/ac (2.4/5 GHz)\nMax speed: up to 433 Mbps (single‑stream AC)\nSecurity: WPA2\nInterface: USB 2.0/3.0 (or module variants)\nAntenna: detachable external option\nCompatibility: Windows/macOS/Linux plug‑and‑play drivers\nWarranty: 30‑day hardware warranty",
+            "price": "₹799",
+            "img": "/Product_2.svg"
+        },
+        {
+            "id": 3,
+            "title": "DDR3 RAM 8GB",
+            "description": "8 GB DDR3 memory module for desktops or laptops (DIMM or SO‑DIMM).",
+            "specs": "Capacity: 8 GB\nType: DDR3‑1600 (PC3‑12800)\nSpeed: 1600 MHz\nLatency: CL11\nVoltage: 1.5V\nECC: Non‑ECC, single‑rank\nContacts: Gold‑plated\nTesting: Stability tested with MemTest",
+            "price": "₹1,299",
+            "img": "/Product_3.svg"
+        },
+        {
+            "id": 4,
+            "title": "OPPO 40W Adapter (Original)",
+            "description": "Genuine OPPO 40W USB‑C power adapter with smart charging.",
+            "specs": "Output: Up to 40W (PD/VOOC compatible)\nVoltages: Multi‑voltage handshake (5V/9V/12V depending on device)\nProtections: Over‑current, over‑voltage, short‑circuit, thermal\nForm factor: Compact with foldable plug\nIncludes: 1.2 m USB‑C cable\nWarranty: 180‑day replacement on manufacturing defects",
+            "price": "₹1,199",
+            "img": "/Product_4.svg"
+        },
+        {
+            "id": 5,
+            "title": "ViVo 42W FastCharger",
+            "description": "Official Vivo 42W fast charger optimized for Vivo devices.",
+            "specs": "Output: Up to 42W (USB‑C PD / proprietary fast charge)\nCompatibility: Vivo and other PD‑capable devices (performance varies)\nProtections: Multi‑level safety protections\nIncludes: USB‑C cable\nWarranty: 90‑day warranty",
+            "price": "₹1,099",
+            "img": "/Product_5.svg"
+        },
+        {
+            "id": 6,
+            "title": "Wifi Card for Laptops",
+            "description": "Internal replacement Wi‑Fi card for laptops (M.2 or mini‑PCIe).",
+            "specs": "Form factor: M.2 2230 or mini‑PCIe\nStandards: Dual‑band 802.11ac (optional Wi‑Fi 6)\nMax speed: Up to 867 Mbps (dual‑stream)\nBluetooth: Integrated 4.2/5.0 depending on SKU\nAntenna: U.FL connectors\nService: Installation and antenna verification\nWarranty: 60‑day warranty",
+            "price": "₹899",
+            "img": "/Product_6.svg"
+        },
+        {
+            "id": 7,
+            "title": "EVM NVMe SSD 1TB",
+            "description": "High‑performance NVMe M.2 SSD with 1 TB capacity.",
+            "specs": "Interface: NVMe PCIe Gen3 x4 (Gen4 variants available)\nCapacity: 1 TB\nPerformance: Sequential read/write up to ~3500/3000 MB/s (model dependent)\nNAND: 3D TLC\nFeatures: S.M.A.R.T., optional AES encryption\nEndurance: TBW rated (model dependent)\nWarranty: 3‑year limited warranty",
+            "price": "₹7,499",
+            "img": "/Product_7.svg"
+        },
+        {
+            "id": 8,
+            "title": "Lenovo B490 Motherboard",
+            "description": "OEM‑compatible replacement motherboard for Lenovo B490 series.",
+            "specs": "Compatibility: Lenovo B490 series\nI/O: VGA/HDMI/ethernet/audio ports as per original\nMemory: SO‑DIMM slots per model\nPower: Tested DC jack and power circuit\nBIOS: Matched and flashed if required\nTesting: Full functional testing included\nWarranty: 90‑day parts-and-labor warranty",
+            "price": "₹5,999",
+            "img": "/Product_8.svg"
+        },
+        {
+            "id": 9,
+            "title": "Charging Port for Laptops",
+            "description": "Replacement DC jack or USB‑C charging port for laptops.",
+            "specs": "Service: Board‑level or soldered connector replacement\nIncludes: New connector assembly and flex where required\nChecks: Power rail inspection, continuity and polarity verification\nValidation: Post‑repair charging validation under load\nWarranty: 60‑day repair warranty",
+            "price": "₹699",
+            "img": "/Product_9.svg"
+        },
+        {
+            "id": 10,
+            "title": "Charging Port for Laptops",
+            "description": "Replacement DC jack or USB‑C charging port for laptops.",
+            "specs": "Service: Board‑level or soldered connector replacement\nIncludes: New connector assembly and flex where required\nChecks: Power rail inspection, continuity and polarity verification\nValidation: Post‑repair charging validation under load\nWarranty: 60‑day repair warranty",
+            "price": "₹699",
+            "img": "/Product_9.svg"
+        }
+    ]
+}
