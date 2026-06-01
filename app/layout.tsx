@@ -33,8 +33,12 @@ export default function RootLayout({
 
       <body className="min-h-full flex flex-col">\
         <Notification />
-        <Navbar/>
-        {children}
+        <Navbar />
+        <div className="flex flex-col flex-1 items-center justify-center bg-zinc-100 font-sans">
+          <main className="rounded-lg flex flex-col flex-1 w-full max-w-[90%] items-center justify-around text-center py-32 px-12 bg-white gap-20 mt-20 mb-10">
+            {children}
+          </main>
+        </div>
         <Footer />
         {/* <Notification /> */}
       </body>

@@ -3,20 +3,19 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-100 font-sans">
-      <main className="rounded-lg flex flex-col flex-1 w-full max-w-6xl items-center justify-around text-center py-32 px-16 bg-white gap-20 mt-20 mb-2">
-        <h1 className="text-3xl text-black font-bold uppercase mt-10">Welcome to my <br /> E-commerce Site</h1>
-        <Image
-          className="border-1 dark:none-invert"
-          src="/logo.webp"
-          alt="logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <p className="text-black mt-4 text-lg font-bold">Discover the best products at unbeatable prices!</p>
-      </main>
+    <div>
+      <h1 className="text-3xl text-black font-bold uppercase mt-10">Welcome to my <br /> E-commerce Site</h1>
+      <Image
+        className="border-1 dark:none-invert"
+        src="/logo.webp"
+        alt="logo"
+        width={100}
+        height={20}
+        priority
+      />
+      <p className="text-black mt-4 text-lg font-bold">Discover the best products at unbeatable prices!</p>
     </div>
+    // </div >
     // <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans text-blue-500 dark:invert">
     //   <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start mt-20">
     //     <h1 className="text-3xl font-bold mt-10 ">Welcome to my E-commerce Site</h1>
