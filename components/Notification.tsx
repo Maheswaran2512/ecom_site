@@ -49,12 +49,12 @@ export default function Notification() {
       {notices.map((n) => (
         <div
           key={n.id}
-          className={`max-w-sm w-full px-4 py-2 rounded-lg shadow-md text-white flex items-start justify-between gap-4 ${{
+          className={`max-w-sm w-full px-4 py-2 rounded-lg shadow-md text-white flex items-center justify-between gap-4 ${{
             success: "bg-green-600",
             error: "bg-red-600",
             info: "bg-sky-600",
           }[n.type]}`}>
-          <div className="flex-1 text-sm leading-tight">{n.message}</div>
+          <div className="flex-1 text-sm leading-normal">{n.message}</div>
           <button
             onClick={() => remove(n.id)}
             aria-label="close"
