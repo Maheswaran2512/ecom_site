@@ -75,7 +75,7 @@ export default function ContactForm() {
   });
 
   // Helper helper function to trigger your custom Notification component
-  const triggerNotification = (message, type = "info") => {
+  const triggerNotification = (message : string, type = "info") => {
     const event = new CustomEvent("notify", {
       detail: {
         message: message,
@@ -87,7 +87,8 @@ export default function ContactForm() {
   };
 
   // 3. Validation Rules While Typing
-  const handleEmailChange = (value) => {
+  // const handleEmailChange = (value) => {
+  const handleEmailChange = (value: string) => {
     setEmail(value);
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -100,7 +101,8 @@ export default function ContactForm() {
     }
   };
 
-  const handlePhoneChange = (value) => {
+  // const handlePhoneChange = (value) => {
+    const handlePhoneChange = (value: string) => {
     // Sanitize input to only allow number characters
     const cleanValue = value.replace(/\D/g, "");
     setNumber(cleanValue);
@@ -116,7 +118,9 @@ export default function ContactForm() {
   };
 
   // 4. Submission Guard Check
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const hasErrors = errors.email || errors.number;
