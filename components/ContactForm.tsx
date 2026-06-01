@@ -1,56 +1,3 @@
-// "use client";
-
-// import { useState } from "react";
-// import Servicesjson from "@/lib/Services.json";
-// import Productsjson from "@/lib/Products.json";
-// import Listing from "@/components/Listing";
-
-// export default function ContactForm() {
-//   const [enquiry, setEnquiry] = useState("");
-//   const [selectedService, setSelectedService] = useState("");
-//   const [selectedProduct, setSelectedProduct] = useState("");
-
-//   return (
-//         <form action="#" className="uppercase flex flex-col gap-5 border-gray-0 rounded-3xl p-5 bg-blue-100 shadow-xl shadow-blue-800">
-//           <div className="flex gap-5 justify-between items-center">
-//             <div className="flex gap-5 items-center">
-//               <label htmlFor="name" className="p-5">Name...</label>
-//               <input type="text" name="name" placeholder="Enter Your Name" className="h-full rounded-4xl p-3 shadow-xl" required />
-//             </div>
-//             <div className="flex gap-5 items-center">
-//               <label htmlFor="email" className="p-5">Email ID</label>
-//               <input type="email" name="email" placeholder="Enter Your Email" required className="h-full rounded-4xl p-3 shadow-xl" />
-//             </div>
-//           </div>
-
-//           <div className="flex gap-5 justify-normal items-center ">
-//             <div className="flex gap-5 items-center ">
-//               <label htmlFor="number" className="p-5">Phone</label>
-//               <input type="number" name="number" placeholder="Enter Your Number" required className="h-full rounded-4xl p-3 shadow-xl " />
-//             </div>
-//             <div className="flex gap-5 items-center">
-//               <label htmlFor="enquiry" className="p-5">Enquiry</label>
-//               <select name="enquiry" value={enquiry} className="w-full h-full rounded-4xl p-3 shadow-xl " required onChange={(e) => setEnquiry(e.target.value)}>
-//                 <option value="">Select</option>
-//                 <option value="service">Service</option>
-//                 <option value="product">Product</option>
-//                 <option value="other">Other</option>
-//               </select>
-//             </div>
-//           </div>
-//           {enquiry == "service" && (<Listing labelName="service" selectName="service" items={Servicesjson.list} onChange={setSelectedService} />)}
-//           {enquiry == "product" && (<Listing labelName="product" selectName="product" items={Productsjson.list} onChange={setSelectedProduct} />)}
-//           <div className="flex gap-10 items-center justify-between">
-//             <label htmlFor="message" className="p-5">Message</label>
-//             <textarea rows={4} cols={50} className="h-full rounded-4xl p-5 shadow-xl" name="message" placeholder="Enter Your Message"></textarea>
-//           </div>
-//           <div className="flex items-center justify-center">
-//             <button type="submit" className="p-3 border-1 font-bold border-blue-100 text-white rounded-2xl bg-indigo-500 shadow-lg shadow-indigo-500/50">Send . . .</button>
-//           </div>
-//         </form>
-//   );
-// }
-
 "use client";
 
 import { useState } from "react";
@@ -75,13 +22,9 @@ export default function ContactForm() {
   });
 
   const [activeDiagnostic, setActiveDiagnostic] = useState<string | null>(null);
-  const [QuickMess, setQuickMess] = useState(""); // Your textarea value state
   const handleQuickSelectIssue = (issueId: string, issueText: string) => {
-    // 1. Highlight the clicked card
     setActiveDiagnostic(issueId);
-
-    // 2. Automatically fill your textarea with a pre-written message
-    setQuickMess(`Hi, I am experiencing a ${issueText}. Please help me fix it.`);
+    setMessage(`Hi, I am experiencing a ${issueText}. Please help me fix it.`);
   };
 
   // Helper helper function to trigger your custom Notification component
@@ -96,8 +39,6 @@ export default function ContactForm() {
     window.dispatchEvent(event);
   };
 
-  // 3. Validation Rules While Typing
-  // const handleEmailChange = (value) => {
   const handleEmailChange = (value: string) => {
     setEmail(value);
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -111,9 +52,7 @@ export default function ContactForm() {
     }
   };
 
-  // const handlePhoneChange = (value) => {
   const handlePhoneChange = (value: string) => {
-    // Sanitize input to only allow number characters
     const cleanValue = value.replace(/\D/g, "");
     setNumber(cleanValue);
 
@@ -127,21 +66,16 @@ export default function ContactForm() {
     }
   };
 
-  // 4. Submission Guard Check
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const hasErrors = errors.email || errors.number;
     const basicFieldsFilled = name && email && number && enquiry && message;
 
-    // Validate conditional sub-selections
     let selectionValid = true;
     if (enquiry === "service" && !selectedService) selectionValid = false;
     if (enquiry === "product" && !selectedProduct) selectionValid = false;
 
-    // Trigger alerts using your notification layout system
     if (hasErrors) {
       triggerNotification("Please fix the validation errors before submitting.", "error");
       return;
@@ -152,7 +86,6 @@ export default function ContactForm() {
       return;
     }
 
-    // Success code path
     if (!hasErrors && basicFieldsFilled && selectionValid) {
       console.log("Form data is valid! Submitting:", {
         name,
@@ -174,130 +107,6 @@ export default function ContactForm() {
   };
 
   return (
-    // <form
-    //   onSubmit={handleSubmit}
-    //   className="uppercase flex flex-col gap-5 border-gray-0 rounded-3xl p-5 bg-blue-100 shadow-xl shadow-blue-800"
-    //   noValidate
-    // >
-    //   {/* Name & Email Row */}
-    //   <div className="flex gap-5 justify-between items-center">
-    //     <div className="flex gap-5 items-center w-1/2">
-    //       <label htmlFor="name" className="p-5 min-w-[100px]">Name...</label>
-    //       <input
-    //         type="text"
-    //         name="name"
-    //         maxLength={30}
-    //         placeholder="Enter Your Name"
-    //         value={name}
-    //         onChange={(e) => setName(e.target.value)}
-    //         className="h-full w-full rounded-4xl p-3 shadow-xl outline-none"
-    //         required
-    //       />
-    //     </div>
-
-    //     <div className="flex gap-5 items-center w-1/2 relative">
-    //       <label htmlFor="email" className="p-5 min-w-[100px]">Email ID</label>
-    //       <div className="flex flex-col w-full">
-    //         {errors.email && (
-    //           <span className="text-red-600 text-[11px] font-sans lowercase tracking-normal absolute bottom-[1px] left-[260px]">
-    //             {errors.email}
-    //           </span>
-    //         )}
-    //         <input
-    //           type="email"
-    //           name="email"
-    //           placeholder="Enter Your Email"
-    //           value={email}
-    //           onChange={(e) => handleEmailChange(e.target.value)}
-    //           required
-    //           className={`h-full w-full rounded-4xl p-3 shadow-xl outline-none border transition-colors ${errors.email ? "border-red-500 bg-red-50" : "border-transparent"
-    //             }`}
-    //         />
-
-    //       </div>
-    //     </div>
-    //   </div>
-
-    //   {/* Phone & Enquiry Row */}
-    //   <div className="flex gap-5 justify-normal items-center">
-    //     <div className="flex gap-5 items-center w-1/2 relative">
-    //       <label htmlFor="number" className="p-5 min-w-[100px]">Phone</label>
-    //       <div className="flex flex-col w-full">
-    //         <input
-    //           type="text"
-    //           inputMode="numeric"
-    //           maxLength={10}
-    //           name="number"
-    //           placeholder="Enter Your Number"
-    //           value={number}
-    //           onChange={(e) => handlePhoneChange(e.target.value)}
-    //           required
-    //           className={`h-full w-full rounded-4xl p-3 shadow-xl outline-none border transition-colors ${errors.number ? "border-red-500 bg-red-50" : "border-transparent"
-    //             }`}
-    //         />
-    //         {errors.number && (
-    //           <span className="text-red-600 text-[11px] font-sans lowercase tracking-normal absolute bottom-[-20px] left-[105px]">
-    //             {errors.number}
-    //           </span>
-    //         )}
-    //       </div>
-    //     </div>
-
-    //     <div className="flex gap-5 items-center w-1/2">
-    //       <label htmlFor="enquiry" className="p-5 min-w-[100px]">Enquiry</label>
-    //       <select
-    //         name="enquiry"
-    //         value={enquiry}
-    //         className="w-full h-full rounded-4xl p-3 shadow-xl outline-none cursor-pointer"
-    //         required
-    //         onChange={(e) => {
-    //           setEnquiry(e.target.value);
-    //           setSelectedService("");
-    //           setSelectedProduct("");
-    //         }}
-    //       >
-    //         <option value="">Select</option>
-    //         <option value="service">Service</option>
-    //         <option value="product">Product</option>
-    //         <option value="other">Other</option>
-    //       </select>
-    //     </div>
-    //   </div>
-
-    //   {/* Conditional Sub-menus */}
-    //   {enquiry === "service" && (
-    //     <Listing labelName="service" selectName="service" items={Servicesjson.list} onChange={setSelectedService} />
-    //   )}
-    //   {enquiry === "product" && (
-    //     <Listing labelName="product" selectName="product" items={Productsjson.list} onChange={setSelectedProduct} />
-    //   )}
-
-    //   {/* Message Textarea Row */}
-    //   <div className="flex gap-10 items-center justify-between">
-    //     <label htmlFor="message" className="p-5 min-w-[100px]">Message</label>
-    //     <textarea
-    //       rows={4}
-    //       cols={50}
-    //       maxLength={300}
-    //       name="message"
-    //       placeholder="Enter Your Message"
-    //       value={message}
-    //       onChange={(e) => setMessage(e.target.value)}
-    //       className="h-full w-full rounded-4xl p-5 shadow-xl outline-none resize-none"
-    //       required
-    //     ></textarea>
-    //   </div>
-
-    //   {/* Submit Button */}
-    //   <div className="flex items-center justify-center">
-    //     <button
-    //       type="submit"
-    //       className="p-3 px-6 border-1 font-bold border-blue-100 text-white rounded-2xl bg-indigo-500 shadow-lg shadow-indigo-500/50 hover:bg-indigo-600 transition-all active:scale-95"
-    //     >
-    //       Send . . .
-    //     </button>
-    //   </div>
-    // </form>
     <div className="w-full max-w-[95%] xl:max-w-7xl mx-auto min-h-screen flex items-center justify-center p-2 md:p-4">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full items-center">
         <div className="lg:col-span-5 flex flex-col gap-6 text-[#1a3b8b] p-2">
@@ -311,8 +120,6 @@ export default function ContactForm() {
           <p className="text-slate-600 text-base md:text-lg max-w-md">
             Select your primary issue below to quick-fill your message form, or directly type your custom enquiry to our right-side dispatch window.
           </p>
-
-          {/* Mini Interactive Diagnostic Grid */}
           <div className="grid grid-cols-2 gap-3 mt-2">
             {[
               { id: "audio", label: "🔇 Audio Outage", text: "complete loss of sound in one ear channel" },
@@ -335,7 +142,7 @@ export default function ContactForm() {
           </div>
 
           <div className="text-xs text-slate-400 mt-2 font-medium">
-            ⚡ Supported Brands: Sony, Bose, Apple AirPods, Sennheiser, & Marshall.
+            ⚡ Supported Brands: Sony, Bose, Apple , Boat , Zebronics , etc .
           </div>
         </div>
         <div className="lg:col-span-7 w-full">
@@ -431,9 +238,9 @@ export default function ContactForm() {
                 rows={4}
                 cols={50}
                 maxLength={300}
+                value={message} // Show quick message if available, else show textarea input
                 name="message"
                 placeholder="Enter Your Message"
-                value={message || QuickMess} // Show quick message if available, else show textarea input
                 onChange={(e) => setMessage(e.target.value)}
                 className="h-full w-full rounded-4xl p-5 shadow-xl outline-none resize-none md-w-full sm:w-full"
                 required
