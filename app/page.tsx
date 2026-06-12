@@ -3,8 +3,9 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div>
-      <h1 className="text-3xl text-black font-bold uppercase mt-10">Welcome to my <br /> E-commerce Site</h1>
+
+    <div className="flex flex-col flex-1 items-center justify-center gap-5 ">
+      <h1 className="text-3xl text-black font-bold mt-10">Welcome to<br /><strong>H</strong>eadPhone <strong>R</strong>epair <strong>C</strong>entre</h1>
       <Image
         className="border-1 dark:none-invert"
         src="/logo.webp"
