@@ -45,7 +45,8 @@ export default function Notification() {
   if (notices.length === 0) return null;
 
   return (
-    <div className="fixed top-4 right-4 z-50 flex flex-col items-end gap-3">
+    <div className="fixed top-4 right-4 z-3 mt-15
+      flex flex-col items-end gap-3">
       {notices.map((n) => (
         <div
           key={n.id}

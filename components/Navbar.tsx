@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Navbar() {
     return (
-        <nav className="fixed top-0 left-0 w-full bg-indigo/60 backdrop-blur-md backdrop-saturate-150 shadow-md">
+        <nav className="fixed top-0 left-0 z-2 w-full bg-indigo/60 backdrop-blur-md backdrop-saturate-150 shadow-md">
             <div className="mx-auto flex items-center justify-between gap-x-3 px-3 py-3 sm:px-3 sm:py-3">
                 <Link href="/" className="flex items-center flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12">
                     <Image
@@ -19,7 +19,7 @@ export default function Navbar() {
                         text-decoration:underline;
                     } */}
                 {/* </style> */}
-                <ul className="flex justify-center gap-3 sm:gap-4 list-none overflow-x-auto text-black dark:invert">
+                <ul className="flex justify-center gap-3 sm:gap-4 list-none overflow-x-auto text-black">
                     <li className="font-bold text-sm sm:text-base">
                         <Link href="/">HOME</Link>
                     </li>
