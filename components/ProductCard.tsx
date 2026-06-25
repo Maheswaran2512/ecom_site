@@ -7,6 +7,8 @@ type Props = {
     price: string;
     img: string;
 };
+
+
 export default function ProductCard({ title, description, specs, price, img }: Props) {
     return (
         <article className="bg-white rounded-lg shadow-sm p-4 flex flex-col flex-between border-0.1 border-transparent [box-shadow:0_10px_15px_-3px_rgba(99,102,241,0.35)] transform-gpu transition-all duration-300 ease-out will-change-transform hover:scale-102 hover:border-blue-200 hover:[box-shadow:0_10px_15px_-3px_rgba(99,102,241,0.5),0_0_20px_rgba(59,130,246,0.8)]">

@@ -66,19 +66,27 @@ export default function ContactForm() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const hasErrors = errors.email || errors.number;
-    const basicFieldsFilled = name && email && number && enquiry && message;
+    const hasErrors = !!errors.email || !!errors.number;
+    const basicFieldsFilled = !!name && !!email && !!number && !!enquiry && !!message;
 
     let selectionValid = true;
+
     if (enquiry === "service" && !selectedService) selectionValid = false;
     if (enquiry === "product" && !selectedProduct) selectionValid = false;
 
     if (hasErrors) {
-      triggerNotification("Please fix the validation errors before submitting.", "error");
-      return;
+      if (errors.email) {
+        triggerNotification("Please fill your email correctly.", "error");
+        return;
+      }
+
+      if (errors.number) {
+        triggerNotification("Please fill your mobile number correctly.", "error");
+        return;
+      }
     }
 
     if (!basicFieldsFilled || !selectionValid) {
@@ -86,23 +94,43 @@ export default function ContactForm() {
       return;
     }
 
-    if (!hasErrors && basicFieldsFilled && selectionValid) {
-      console.log("Form data is valid! Submitting:", {
-        name,
-        email,
-        number,
-        enquiry,
-        message,
-        selectionDetails: enquiry === "service" ? selectedService : selectedProduct
+    const payload = {
+      name,
+      email,
+      number,
+      enquiry,
+      message,
+      selectedService: enquiry === "service" ? selectedService : "",
+      selectedProduct: enquiry === "product" ? selectedProduct : "",
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
       });
 
-      triggerNotification("Form submitted successfully!", "success");
+      if (!response.ok) {
+        throw new Error("Failed to send form data.");
+      }
 
-      // Reset Form fields safely
-      setName(""); setEmail(""); setNumber(""); setMessage(""); setEnquiry("");
-      setSelectedService(""); setSelectedProduct("");
-    } else {
-      triggerNotification("Please fill in all required fields accurately before sending.", "error");
+      const data = await response.json();
+      console.log("Form response:", data);
+      triggerNotification(data.message, "success");
+
+      setName("");
+      setEmail("");
+      setNumber("");
+      setMessage("");
+      setEnquiry("");
+      setSelectedService("");
+      setSelectedProduct("");
+    } catch (error) {
+      console.error(error);
+      triggerNotification("Unable to send the form right now. Please try again.", "error");
     }
   };
 
@@ -158,6 +186,7 @@ export default function ContactForm() {
                 <input
                   type="text"
                   name="name"
+                  id="name"
                   maxLength={30}
                   placeholder="Enter Your Name"
                   value={name}
@@ -172,6 +201,7 @@ export default function ContactForm() {
                 <input
                   type="email"
                   name="email"
+                  id="email"
                   placeholder="Enter Your Email"
                   value={email}
                   onChange={(e) => handleEmailChange(e.target.value)}
@@ -192,6 +222,7 @@ export default function ContactForm() {
                   inputMode="numeric"
                   maxLength={10}
                   name="number"
+                  id="number"
                   placeholder="Enter Your Number"
                   value={number}
                   onChange={(e) => handlePhoneChange(e.target.value)}
@@ -206,6 +237,7 @@ export default function ContactForm() {
                 <label htmlFor="enquiry" className="p-5 min-w-[100px]">Enquiry</label>
                 <select
                   name="enquiry"
+                  id="enquiry"
                   value={enquiry}
                   className="w-full h-full rounded-4xl p-3 shadow-xl outline-none cursor-pointer"
                   required
@@ -240,6 +272,7 @@ export default function ContactForm() {
                 maxLength={300}
                 value={message} // Show quick message if available, else show textarea input
                 name="message"
+                id="message"
                 placeholder="Enter Your Message"
                 onChange={(e) => setMessage(e.target.value)}
                 className="h-full w-full rounded-4xl p-5 shadow-xl outline-none resize-none md-w-full sm:w-full"
@@ -259,6 +292,7 @@ export default function ContactForm() {
           </form>
         </div>
       </div>
+      <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     </div>
   );
 }

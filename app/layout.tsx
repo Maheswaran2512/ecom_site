@@ -30,10 +30,11 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-
-      <body className="min-h-full flex flex-col bg-black">\
+    
+      <body className="min-h-full flex flex-col bg-black">
         <Notification />
-        <Navbar />backdrop-blur-md backdrop-saturate-150 shadow-md
+        <Navbar />
+        {/* backdrop-blur-md backdrop-saturate-150 shadow-md */}
         <div className="flex flex-col flex-1 items-center justify-center bg-indigo-200 font-sans">
           <main className="rounded-lg z-1 flex flex-col flex-1 w-full max-w-[90%] items-center justify-around text-center py-32 px-12 bg-white backdrop-blur-md backdrop-saturate-450 shadow-md gap-20 mt-20 mb-10">
             {children}
