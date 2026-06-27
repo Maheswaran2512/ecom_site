@@ -79,6 +79,14 @@
             "specs": "Service: Board‑level or soldered connector replacement\nIncludes: New connector assembly and flex where required\nChecks: Power rail inspection, continuity and polarity verification\nValidation: Post‑repair charging validation under load\nWarranty: 60‑day repair warranty",
             "price": "₹699",
             "img": "/Product_9.svg"
+        },
+        {
+            "id": 11,
+            "title": "3.0 USB HuB",
+            "description": "4 in 1 USB Hub include USB‑C laptops.",
+            "specs": "Service: Board‑level or soldered connector replacement\nIncludes: New connector assembly and flex where required\nChecks: Power rail inspection, continuity and polarity verification\nValidation: Post‑repair charging validation under load\nWarranty: 60‑day repair warranty",
+            "price": "₹699",
+            "img": "/Product_4.svg"
         }
     ]
 }

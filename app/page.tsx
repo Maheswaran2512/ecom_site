@@ -1,35 +1,107 @@
 import Image from "next/image";
-// import Link from "next/link";
+import Link from "next/link";
 
 export default function Home() {
-  return (
+  const services = [
+    { icon: "🔊", title: "Speaker Repair", },
+    { icon: "🔋", title: "Battery Replacement", },
+    { icon: "📶", title: "Bluetooth Fix", },
+    { icon: "🎤", title: "Mic Repair", },
+  ];
 
-    <div className="flex flex-col flex-1 items-center justify-center gap-5 ">
-      <h1 className="text-3xl text-black font-bold mt-10">Welcome to<br /><strong>H</strong>eadPhone <strong>R</strong>epair <strong>C</strong>entre</h1>
-      <Image
-        className="border-1 dark:none-invert"
-        src="/logo.webp"
-        alt="logo"
-        width={100}
-        height={20}
-        priority
-      />
-      <p className="text-black mt-4 text-lg font-bold">Discover the best products at unbeatable prices!</p>
-    </div>
-    // </div >
-    // <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans text-blue-500 dark:invert">
-    //   <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start mt-20">
-    //     <h1 className="text-3xl font-bold mt-10 ">Welcome to my E-commerce Site</h1>
-    //     <Image
-    //       className="dark:invert"
-    //       src="/next.svg"
-    //       alt="Next.js logo"
-    //       width={100}
-    //       height={20}
-    //       priority
-    //     />
-    //     <p className="mt-4 text-lg">Discover the best products at unbeatable prices!</p>
-    //   </main>
-    // </div>
+  return (
+    <section className="relative overflow-hidden py-0">
+      <section className="relative overflow-hidden pt-10 pb-70 ">
+        <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-indigo-100 blur-3xl opacity-70"></div>
+        <div className="absolute bottom-0 right-0 h-80 w-80 rounded-full bg-violet-100 blur-3xl opacity-70"></div>
+        <div className="relative">
+          <div className="text-center">
+            <span className="rounded-full bg-indigo-100 px-5 py-2 text-sm font-semibold text-indigo-700 uppercase"> Welcome to 🎧 HeadPhone Repair Centre</span>
+            <h1 className="mt-8 text-5xl md:text-6xl font-black text-slate-900">Repair.<span className="text-indigo-600"> Restore.</span>
+              <br />Enjoy Again.</h1>
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-600">
+              From diagnosis to delivery, every repair is handled with
+              precision, genuine parts, and professional care.
+            </p>
+          </div>
+        </div>
+      </section>
+      <div className="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-indigo-100 blur-3xl opacity-70"></div>
+      <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-violet-100 blur-3xl opacity-70"></div>
+      <div className="relative grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <span className="inline-flex items-center rounded-full bg-indigo-100 px-5 py-2 text-sm font-semibold text-indigo-700">
+            🎧 Trusted Headphone Repair Centre </span>
+          <h1 className="mt-8 text-5xl lg:text-6xl font-black leading-tight text-slate-900"> Bring Your<br /><span className="text-indigo-600"> Sound Back.</span> </h1>
+          <p className="mt-8 max-w-xl text-lg leading-8 text-slate-600">
+            We specialize in repairing wired and wireless headphones with
+            genuine spare parts, skilled technicians, and affordable
+            pricing.
+          </p>
+          <div className="mt-10 flex flex-wrap gap-5">
+            <Link href="/contact" className="rounded-full bg-indigo-600 px-8 py-4 text-white font-semibold shadow-lg hover:bg-indigo-700 transition"> Book Repair</Link>
+
+            <Link href="/services" className="rounded-full border border-indigo-200 px-8 py-4 text-indigo-700 font-semibold hover:bg-indigo-50 transition">Our Services</Link>
+          </div>
+          <div className="mt-14 grid grid-cols-3 gap-8">
+            <div>
+              <h2 className="text-4xl font-black text-indigo-600">500+</h2>
+              <p className="mt-2 text-slate-500">Repairs</p>
+            </div>
+            <div><h2 className="text-4xl font-black text-indigo-600">98%</h2>
+              <p className="mt-2 text-slate-500">Success</p>
+            </div>
+            <div>
+              <h2 className="text-4xl font-black text-indigo-600">15+</h2>
+              <p className="mt-2 text-slate-500">Brands</p>
+            </div>
+          </div>
+        </div>
+        <div className="relative flex justify-center">
+          <div className="relative">
+            <div className="w-[420px] h-[420px] rounded-full bg-white border-8 border-indigo-100 shadow-2xl flex items-center justify-center">
+              <Image
+                src="/logo.webp"
+                alt="Logo"
+                width={180}
+                height={180}
+                priority
+              />
+            </div>
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-white border border-indigo-100 shadow-lg rounded-2xl px-5 py-3">
+              🔧 Repair</div>
+            <div className="absolute top-1/2 -left-10 -translate-y-1/2 bg-white border border-indigo-100 shadow-lg rounded-2xl px-5 py-3">
+              ⚡ Fast</div>
+            <div className="absolute top-1/2 -right-10 -translate-y-1/2 bg-white border border-indigo-100 shadow-lg rounded-2xl px-5 py-3">
+              ⭐ Quality</div>
+            <div className="absolute bottom-0 left-1/2 translate-y-8 -translate-x-1/2 bg-white border border-indigo-100 shadow-lg rounded-2xl px-5 py-3">
+              💯 Genuine Parts</div>
+          </div>
+        </div>
+      </div>
+      <div className="mt-28">
+        <div className="text-center">
+          <h2 className="text-4xl font-bold text-slate-900">What Can We Repair?</h2>
+          <p className="mt-4 text-slate-600">Professional repair solutions for all common headphone issues</p>
+        </div>
+        <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {services.map((item) => (
+            <div key={item.title} className="rounded-3xl bg-white border border-indigo-100 p-8 shadow-md hover:-translate-y-2 hover:shadow-xl transition">
+              <div className="w-16 h-16 rounded-2xl bg-indigo-100 flex items-center justify-center text-3xl"> {item.icon}</div>
+              <h3 className="mt-6 text-2xl font-bold text-slate-900"> {item.title}</h3>
+              <p className="mt-4 text-slate-500"> Fast diagnosis, genuine replacement parts and expert workmanship.</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="mt-24 rounded-[40px] bg-gradient-to-r from-indigo-600 via-violet-600 to-purple-600 p-12 text-center text-white shadow-2xl">
+        <h2 className="text-4xl font-black"> Ready to Restore Your Headphones </h2>
+        <p className="mx-auto mt-5 max-w-3xl text-lg text-indigo-100"> Don't let damaged headphones stop your music. Our experienced technicians are ready to bring them back to life </p>
+        <div className="mt-10 flex flex-wrap justify-center gap-5">
+          <Link href="/contact" className="rounded-full bg-white px-8 py-4 font-semibold text-indigo-700 hover:scale-105 transition"> Book a Repair </Link>
+          <Link href="/services" className="rounded-full border-2 border-white px-8 py-4 font-semibold hover:bg-white hover:text-indigo-700 transition"> View Services</Link>
+        </div>
+      </div>
+    </section>
   );
 }

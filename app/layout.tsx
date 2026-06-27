@@ -28,15 +28,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-    
-      <body className="min-h-full flex flex-col bg-black">
+      <body suppressHydrationWarning className="min-h-screen flex flex-col bg-gradient-to-b from-white via-indigo-100/40 to-white">
         <Notification />
-        <Navbar />
-        {/* backdrop-blur-md backdrop-saturate-150 shadow-md */}
-        <div className="flex flex-col flex-1 items-center justify-center bg-indigo-200 font-sans">
-          <main className="rounded-lg z-1 flex flex-col flex-1 w-full max-w-[90%] items-center justify-around text-center py-32 px-12 bg-white backdrop-blur-md backdrop-saturate-450 shadow-md gap-20 mt-20 mb-10">
+        <div className="flex flex-col flex-1 items-center justify-center bg-indigo-50 font-sans">
+          <Navbar />
+          <main className="rounded-lg z-1 flex flex-col flex-1 items-center justify-around text-center
+          w-full max-w-[90%] py-32 px-8 gap-20 mt-25 mb-10 max-tablet:max-w-[97%] max-tablet:px-5 
+          bg-white backdrop-blur-sm backdrop-saturate-500 shadow-lg ">
             {children}
           </main>
         </div>

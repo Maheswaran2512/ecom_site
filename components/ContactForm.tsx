@@ -99,17 +99,15 @@ export default function ContactForm() {
       email,
       number,
       enquiry,
-      message,
       selectedService: enquiry === "service" ? selectedService : "",
       selectedProduct: enquiry === "product" ? selectedProduct : "",
+      message,
     };
-
+    console.log(JSON.stringify(payload))
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json", },
         body: JSON.stringify(payload),
       });
 
@@ -135,7 +133,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="w-full max-w-[95%] xl:max-w-7xl mx-auto min-h-screen flex items-center justify-center p-2 md:p-4">
+    <div className="w-full max-w-[95%] mx-auto min-h-screen flex wrap items-center justify-center max-tablet:max-w-[100%] ">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full items-center">
         <div className="lg:col-span-5 flex flex-col gap-6 text-[#1a3b8b] p-2">
           <span className="text-xs font-bold uppercase tracking-widest text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full w-max">
@@ -173,15 +171,16 @@ export default function ContactForm() {
             ⚡ Supported Brands: Sony, Bose, Apple , Boat , Zebronics , etc .
           </div>
         </div>
-        <div className="lg:col-span-7 w-full">
+        <div className="lg:col-span-7 w-full max-tablet:max-w-[100%]">
           <form
             onSubmit={handleSubmit}
             className="uppercase flex flex-col gap-5 border-gray-0 rounded-3xl p-5 bg-blue-100 shadow-xl shadow-blue-800"
             noValidate
+            method="post"
           >
             {/* Name & Email Row */}
             <div className="flex flex-col gap-5 justify-between items-center lg:flex-row">
-              <div className="flex gap-5 justify-center items-center w-full h-full md:w-full sm:w-full">
+              <div className="flex gap-5 justify-center items-center w-full h-full">
                 <label htmlFor="name" className="p-5 min-w-[100px]">Name...</label>
                 <input
                   type="text"
@@ -195,8 +194,7 @@ export default function ContactForm() {
                   required
                 />
               </div>
-
-              <div className="flex gap-5 justify-center items-center w-full h-full md:w-full sm:w-full">
+              <div className="flex gap-5 justify-center items-center w-full h-full">
                 <label htmlFor="email" className="p-5 min-w-[100px] whitespace-nowrap">Email ID</label>
                 <input
                   type="email"
@@ -215,7 +213,7 @@ export default function ContactForm() {
 
             {/* Phone & Enquiry Row */}
             <div className="flex gap-5 justify-normal items-center lg:flex-row flex-col">
-              <div className="flex gap-5 justify-center items-center w-full h-full md:w-full sm:w-full">
+              <div className="flex gap-5 justify-center items-center w-full h-full">
                 <label htmlFor="number" className="p-5 min-w-[100px]">Phone</label>
                 <input
                   type="text"
@@ -232,7 +230,6 @@ export default function ContactForm() {
                 />
                 {errors.number && (<span className="absolute text-red-500 mt-15 text-[10px] tracking-normal">{errors.number}</span>)}
               </div>
-
               <div className="flex gap-5 justify-center items-center w-full h-full">
                 <label htmlFor="enquiry" className="p-5 min-w-[100px]">Enquiry</label>
                 <select
@@ -254,7 +251,6 @@ export default function ContactForm() {
                 </select>
               </div>
             </div>
-
             {/* Conditional Sub-menus */}
             {enquiry === "service" && (
               <Listing labelName="service" selectName="service" items={Servicesjson.list} onChange={setSelectedService} />
@@ -262,9 +258,8 @@ export default function ContactForm() {
             {enquiry === "product" && (
               <Listing labelName="product" selectName="product" items={Productsjson.list} onChange={setSelectedProduct} />
             )}
-
             {/* Message Textarea Row */}
-            <div className="flex gap-5 justify-center items-center w-full h-full md:w-full sm:w-full">
+            <div className="flex gap-5 justify-center items-center w-full h-full">
               <label htmlFor="message" className="p-5 min-w-[100px]">Message</label>
               <textarea
                 rows={4}
@@ -292,7 +287,7 @@ export default function ContactForm() {
           </form>
         </div>
       </div>
-      <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+      {/* <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script> */}
     </div>
   );
 }
