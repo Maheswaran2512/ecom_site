@@ -28,6 +28,7 @@ export default function Navbar() {
                     <li className="font-bold text-sm sm:text-base">
                         <Link href="/">HOME</Link>
                     </li>
+                    
                     <li className="font-bold text-sm sm:text-base">
                         <Link href="/services">SERVICE</Link>
                     </li>
