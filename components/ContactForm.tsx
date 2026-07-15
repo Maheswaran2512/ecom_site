@@ -60,7 +60,7 @@ export default function ContactForm() {
     if (!cleanValue) {
       setErrors((prev) => ({ ...prev, number: "Phone is required" }));
     } else if (!phoneRegex.test(cleanValue)) {
-      setErrors((prev) => ({ ...prev, number: "Must be exactly 10 digits" }));
+      setErrors((prev) => ({ ...prev, number: "Invalid format. Must be 10 digits" }));
     } else {
       setErrors((prev) => ({ ...prev, number: "" }));
     }
@@ -103,21 +103,25 @@ export default function ContactForm() {
       selectedProduct: enquiry === "product" ? selectedProduct : "",
       message,
     };
-    console.log(JSON.stringify(payload))
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json", },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
 
+      const data = await response.json().catch(() => null);
+
       if (!response.ok) {
-        throw new Error("Failed to send form data.");
+        const firstError = data?.errors
+          ? Object.values(data.errors as Record<string, string>)[0]
+          : data?.message || "Please fill out the required fields.";
+        triggerNotification(firstError, "error");
+        return;
       }
 
-      const data = await response.json();
-      console.log("Form response:", data);
-      triggerNotification(data.message, "success");
+      triggerNotification(data?.message || "Thanks! Your message has been sent successfully.", "success");
 
       setName("");
       setEmail("");

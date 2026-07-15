@@ -30,19 +30,19 @@ export default function Navbar() {
                     </li>
                     
                     <li className="font-bold text-sm sm:text-base">
-                        <Link href="/services">SERVICE</Link>
+                        <Link href="/services" target="">SERVICE</Link>
                     </li>
                     <li className="font-bold text-sm sm:text-base">
-                        <Link href="/products">PRODUCT</Link>
+                        <Link href="/products" target="">PRODUCT</Link>
                     </li>
                     <li className="font-bold text-sm sm:text-base">
-                        <Link href="/carrer">CARRER</Link>
+                        <Link href="/carrer" target="">CARRER</Link>
                     </li>
                     <li className="font-bold text-sm sm:text-base">
-                        <Link href="/contact">CONTACT</Link>
+                        <Link href="/contact" target="">CONTACT</Link>
                     </li>
                     <li className="font-bold text-sm sm:text-base">
-                        <Link href="/about">ABOUT</Link>
+                        <Link href="/about" target="">ABOUT</Link>
                     </li>
                 </ul>
                 {/* <div className="w-12 sm:w-[50px]" /> */}
